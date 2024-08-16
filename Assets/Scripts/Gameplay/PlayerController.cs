@@ -15,8 +15,6 @@ namespace Darkness
 
         public Text mTime;
 
-        private float time;
-
         private void Start()
         {
             if(isLocalPlayer)
@@ -95,6 +93,14 @@ namespace Darkness
         private void UpdatePlayerName(string _oldValue,string _newValue)
         {
             mPlayerName.text = mName;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.CompareTag("Ball") && isLocalPlayer)
+            {
+                UIController.Instance.AddScore(other.GetComponent<Ball>().Score);
+            }
         }
     }
 }

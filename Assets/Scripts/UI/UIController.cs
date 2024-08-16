@@ -20,9 +20,11 @@ namespace Darkness
 
         public InputField mInputName;
 
-        public Text mTime;
+        private Text mTime;
 
         public float time = 100;
+
+        private Text score;
 
         private void Awake()
         {
@@ -32,6 +34,8 @@ namespace Darkness
             }
 
             mTime = transform.Find("Time").GetComponent<Text>();
+
+            score = transform.Find("Score").GetComponent<Text>();
         }
 
         private void Update()
@@ -42,6 +46,11 @@ namespace Darkness
 
                 mTime.text = Mathf.FloorToInt(time + 0.5f).ToString();
             }
+        }
+
+        public void AddScore(int score)
+        {
+            this.score.text = (int.Parse(this.score.text) + score).ToString();
         }
 
         public override void OnStopClient()
