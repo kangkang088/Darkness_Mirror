@@ -60,6 +60,8 @@ namespace Darkness
             time = 100;
 
             mTime.text = "";
+
+            score.text = "0";
         }
     }
 }
